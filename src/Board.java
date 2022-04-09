@@ -1,17 +1,25 @@
 public class Board {
-    private int [][] matrix = new int[3][3];
+
+    private int [][] matrix;
+
+    public Board() {
+        matrix = new int[3][3];
+    }
 
     public void checkMore(int row, int col) {
         if (this.checkforzero(row, col)) {
             matrix[row][col] += 1;
 
         }
+        updateBoardSize();
     }
     public boolean checkforzero(int row, int col) {
         return matrix[row][col] == 0;
     }
     public void updateBoardSize() {
-        matrix = new int[matrix[0].length + 1][matrix.length + 1];
+        if (checkFull()) {
+            matrix = new int[matrix[0].length + 1][matrix.length + 1];
+        }
     }
 
     public boolean checkFull() {
