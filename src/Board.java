@@ -37,3 +37,38 @@ public class Board {
         return matrix[0].length;
     }
 }
+/*
+    //diagonal down-right
+    check=(row-2,col-2)
+    check=(row-1,col-1)
+
+    //diagonal down-left
+    check=(row-2,col+2)
+    check=(row-1,col+1)
+
+     //diagonal up-right
+    check=(row+2,col-2)
+    check=(row+1,col-1)
+
+    //diagonal up-left
+    check=(row-2,col+2)
+    check=(row-1,col+1)
+
+    //horizontal right
+    check = row, col-2
+    check = row, col-1
+
+    //horizontal left
+    check = row, col+2
+    check = row, col+1
+
+    //verticle down
+    check = row+2, col
+    check = row+1, col
+
+    //verticle up
+    check = row-2, col
+    check = row-1, col
+
+ */
+
