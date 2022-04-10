@@ -9,7 +9,83 @@ public class Board {
     public void checkMore(int row, int col) {
         if (this.checkforzero(row, col)) {
             matrix[row][col] += 1;
+            for (int r = row - 1; r < row + 2; r++) {
+                for (int c = col - 1; c < col + 2; c++) {
 
+                    if (r < 0 || c < 0 || r >= matrix.length || c >= matrix[0].length || (r == row && c == col)) {
+                        continue;
+                    }
+
+                    // check to see everything around it
+                    if (r < row && c < col) {
+                        if (r - 1 > 0 && c - 1 > 0) {
+
+                            // put the box between as 2
+                            if (matrix[r-1][c-1] == 1) {
+                                matrix[r][c] = 2;
+                            }
+                            else if (matrix[r][c] == 1) {
+                                matrix[r - 1][r - 1] = 2;
+                            }
+                        }
+                        else {
+                            continue;
+                        }
+                    }
+                    // middle top
+                    else if (r < row && c == col) {
+                        if (r - 1 > 0) {
+                            if (matrix[r - 1][c] == 1) {
+                                matrix[r][c] = 2;
+                            }
+                            else if (matrix[r][c] == 1){
+                                matrix[r][c] = 2;
+                            }
+                        }
+                        else {
+                            continue;
+                        }
+                    }
+
+                    // top right
+                    else if (r < row && c > col) {
+                        if (r - 1 >  0 && c + 1 >= matrix[0].length) {
+
+                        }
+                    }
+//                    // checking if two places over is going to be empty or not
+//                    if (r >= 0 && c >= 0 & r <= matrix.length - 1 && c <= matrix[0].length - 1) {
+//                        // top left corner check
+//                        if (r < row && c < col && r - 1 >= 0 && c - 1 >= 0) {
+//                            if (matrix[r - 1][c - 1] == 1) {
+//                                matrix[r][c] = 2;
+//                            }
+//                        }
+//                        else {
+//                            continue;
+//                        }
+//
+//                        // above the point clicked
+//                        if (r < row  && c == col) {
+//                            if (matrix[r - 1][c] == 1) {
+//                                matrix[r][c] = 2;
+//                            }
+//                            if (matrix[r][c] == 1) {
+//                                matrix[r - 1][c] == 2;
+//                            }
+//                        }
+//                        else {
+//                            continue;
+//                        }
+//
+//                        // top right corner
+//
+//                    }
+//                    else {
+//                        continue;
+//                    }
+                }
+            }
         }
         updateBoardSize();
     }
