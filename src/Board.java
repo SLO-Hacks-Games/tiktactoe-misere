@@ -6,9 +6,16 @@ public class Board {
         matrix = new int[3][3];
     }
 
+    public int[][] getBoard() {
+        return matrix;
+    }
+
     public void checkMore(int row, int col) {
         if (this.checkforzero(row, col)) {
             matrix[row][col] += 1;
+            if (row < 20) {
+                return;
+            }
             for (int r = row - 1; r < row + 2; r++) {
                 for (int c = col - 1; c < col + 2; c++) {
 
