@@ -47,7 +47,6 @@ public class JFrameExt extends JFrame implements MouseListener {
                 super.mousePressed(e);
                 int x = (int) e.getX() * board.getWidth() / jpeBoard.getWidth();
                 int y = (int) e.getY() * board.getWidth() / jpeBoard.getWidth();
-                System.out.println(x + " " + y);
                 if (board.checkforzero( x, y )) {
                     board.checkMore( x, y );
                     jpeBoard.setBoard( board.getBoard() );
