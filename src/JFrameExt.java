@@ -12,7 +12,7 @@ public class JFrameExt extends JFrame implements MouseListener {
     private final JPanelExt jpeBoard;
     private Timer t;
 
-    public JFrameExt() {
+    public JFrameExt( String name1, String name2 ) {
         super();
         setTitle( "TikTacToe Misère" );
         setSize(310,400);
@@ -36,20 +36,22 @@ public class JFrameExt extends JFrame implements MouseListener {
         jtfText.setEditable( false );
 //        pack();
         jpBar.add( jtfText );
-//        Board board = new Board;
-//        Player p1 = new Player( name );
-//        Player p2 = new Player( name );
+        Board board = new Board();
+//        Player p1 = new Player( name1 );
+//        Player p2 = new Player( name2 );
 //        Player currentPlayer = P1
 
         jpeBoard.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
                 super.mousePressed(e);
-//                int x = (int) e.getX() / board.getWidth();
-//                int y = (int) e.getY() / board.getWidth();
-//                board.trySet( x, y );
+                int x = (int) e.getX() / board.getWidth();
+                int y = (int) e.getY() / board.getWidth();
+                if (board.checkforzero( x, y )) {
+//                    board.checkMore( x, y );
+                    jpeBoard.repaint();
+                }
 //                togglePlayer();
-                jpeBoard.repaint();
 //                final double[] timeRemaining = {180}; // timeRemaining = {currentPlayer.getTime()};
 //                int tIncrement = 1000;
 //                if (timeRemaining[0] < 60000) {

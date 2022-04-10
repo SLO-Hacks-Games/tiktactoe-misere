@@ -21,6 +21,15 @@ public class JPanelExt extends JPanel {
             g.drawLine(10,size/lines*i+10,size+10,size/lines*i+10);
             g.drawLine(size/lines*i+10,10,size/lines*i+10,size+10);
         }
+        g.setColor( Color.red );
+        for (int i=0; i<marks.length; i++) {
+            for (int j=0; j<marks.length; j++) {
+                if (marks[i][j] == 1) {
+                    g.drawLine(size/lines*i+20,size/lines*j+20,size/lines*(i+1),size/lines*(j+1));
+                    g.drawLine(size/lines*i+20,size/lines*(j+1),size/lines*(i+1),size/lines*j+20);
+                }
+            }
+        }
 
     }
 
