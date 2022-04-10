@@ -9,31 +9,33 @@ public class JFrameExt extends JFrame implements MouseListener {
     private static final long serialVersionUID = 1L;
     private final JPanel jpBar;
     private final JTextArea jtfText;
-    private final JPanelExt jpeBoard = new JPanelExt();
+    private final JPanelExt jpeBoard;
     private Timer t;
 
     public JFrameExt() {
         super();
         setTitle( "TikTacToe Misère" );
-        setSize(300,370);
+        setSize(310,400);
         setDefaultCloseOperation( EXIT_ON_CLOSE );
 
         FlowLayout fl = new FlowLayout();
         JPanel jpMain = new JPanel();
+        jpMain.setBackground( Color.lightGray );
         jpMain.setLayout( fl );
-        jpMain.setBackground( Color.darkGray );
         setContentPane(jpMain);
         jpBar = new JPanel();
-        jpBar.setPreferredSize( new Dimension(300,60));
+        jpBar.setPreferredSize( new Dimension(300,55));
         jpBar.setBackground( Color.darkGray );
-        jpMain.add(jpBar);
-        jtfText = new JTextArea();
-        jtfText.setPreferredSize( new Dimension(290,50));
-        jtfText.setBackground( Color.darkGray );
-        jtfText.setEditable( false );
-        jpBar.add(jtfText);
+        jpMain.add( jpBar );
+        jpeBoard = new JPanelExt();
         jpeBoard.setPreferredSize( new Dimension(300,300));
         jpMain.add( jpeBoard );
+        jtfText = new JTextArea();
+        jtfText.setBackground( Color.darkGray );
+        jtfText.setPreferredSize( new Dimension(290,45));
+        jtfText.setEditable( false );
+//        pack();
+        jpBar.add( jtfText );
 //        Board board = new Board;
 //        Player p1 = new Player( name );
 //        Player p2 = new Player( name );
@@ -73,6 +75,7 @@ public class JFrameExt extends JFrame implements MouseListener {
         jpBar.setPreferredSize( new Dimension(size,60));
         jtfText.setPreferredSize( new Dimension(size-10,50));
         jpeBoard.setPreferredSize( new Dimension(size, size));
+//        jpeBoard.setBoard(Board.getMatrix());
         jpeBoard.repaint();
     }
 

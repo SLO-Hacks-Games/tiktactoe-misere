@@ -50,7 +50,7 @@ public class Board {
                     // top right
                     else if (r < row && c > col) {
                         if (r - 1 >  0 && c + 1 >= matrix[0].length) {
-
+                            continue;
                         }
                     }
 //                    // checking if two places over is going to be empty or not
@@ -87,14 +87,16 @@ public class Board {
                 }
             }
         }
-        updateBoardSize();
+        updateBoardSize(matrix.length+1);
     }
     public boolean checkforzero(int row, int col) {
         return matrix[row][col] == 0;
     }
-    public void updateBoardSize() {
-        if (checkFull()) {
-            matrix = new int[matrix[0].length + 1][matrix.length + 1];
+    public void updateBoardSize( int newWidth) {
+        int[][] temp = matrix;
+        matrix = new int[newWidth][newWidth];
+        for (int i=0; i<(Math.max(matrix[0].length,newWidth)); i++) {
+            System.arraycopy(temp[i], 0, matrix[i], 0, Math.max(matrix[0].length, newWidth));
         }
     }
 
